@@ -16,7 +16,7 @@ import { seedDatabase } from './startup/seed';
 function applyDatabaseSchema(): void {
   logger.info('📦 Applying database schema (prisma db push)...');
   try {
-    execSync('npx prisma db push --skip-generate --accept-data-loss=false', {
+    execSync('node node_modules/prisma/build/index.js db push --skip-generate --accept-data-loss=false', {
       stdio: 'inherit',
       env: { ...process.env },
     });
